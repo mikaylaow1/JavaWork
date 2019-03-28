@@ -1,0 +1,135 @@
+
+import java.util.Scanner; //needed to use Scanner for input
+
+public class SlackerFunctions {
+public static void main(String[] args) {
+    
+//Declare variables
+   String userName=" ";
+   int menuChoice;
+   int stationChoice;
+//Create a Scanner object
+    Scanner input = new Scanner(System.in);
+    
+//Display the Opening Statement which includes the Slacker Radio 
+    System.out.println("*************************************** Welcome to Slacker Radio! ***************************************");
+    displayMenu();
+    
+//Prompt the user for their last name and menu choice option
+//Convert last name to uppercase, if necessary
+   do{ 
+    System.out.print("\nPlease enter your last name followed by your Slacker Radio Menu Choice: ");
+    userName = input.next().toUpperCase();
+    menuChoice = input.nextInt();
+
+            //Use a control statement switch()
+            //to process the user's menu choice (options:  1, 2, 3, default)
+            
+                switch(menuChoice){
+                    case 1: 
+                        createStation();
+                        break;
+            //playing a given radio station that the user chooses aka option 2            
+                    case 2:
+                         playStation(userName);
+                          break;
+            //exiting the radio station aka option 3       
+                    case 3: 
+                        System.out.println("\nYou have selected the EXIT Slacker Radio Menu Option.");
+                        System.out.println("\n" + userName + "! " + " Thank you for being a valued listener!");
+                        System.out.println("\n*************************************************** GOODBYE Slacker Radio Listener ***************************************************");
+                        break;
+            //breaks out of program if any other input by user that is not 1,2, or 3.             
+                    default: 
+                        System.out.println("\nInvalid Option");
+                        break;
+                }//end of switch statement
+        
+    }while(menuChoice != 3);
+    
+//Display Thank you message
+        goodbyeMessage(userName);
+    return;
+    
+}//end of main
+
+    public static void createStation(){
+        String userChannel1=" ";
+        Scanner input = new Scanner(System.in);
+        
+            System.out.println("\nYou have selected the CREATE a NEW Slacker Radio STATION menu option.");
+            System.out.print("\nPlease enter the name of the new station: ");
+            userChannel1 = input.nextLine().toUpperCase();
+            System.out.println("\nYou have successfully created the following station: " + userChannel1);
+      }//end of createStation()
+      
+     public static void displayMenu(){
+         
+            System.out.println("\n\n\t\t\t\tSLACKER RADIO MENU: ");
+            System.out.println("\t\t\t\t1 - Create a New Slacker Radio Station");
+            System.out.println("\t\t\t\t2 - Play a Slacker Radio Station");
+            System.out.println("\t\t\t\t3 - Exit Slacker Radio");
+            System.out.println("\n*********************************************************************************************************");
+     }//end of displayMenu()
+      
+      public static void playStation(String userName){
+          int stationChoice;
+          Scanner input = new Scanner(System.in);
+             System.out.println("\nYou have selected the PLAY A SLACKER RADIO STATION menu option.");
+             System.out.println("\nThe user: " + userName + " currently has created the following stations: ");
+             System.out.println("1. Beyonce");
+             System.out.println("2. Ed Sheeran");
+             System.out.println("3. Kanye West");
+             System.out.println("4. Disney Classics");
+             System.out.println("5. Cardi B");
+             System.out.println("6. Demi Lovato");
+             System.out.println("7. Nick Jonas");
+             System.out.println("8. Maroon 5");
+             System.out.println("9. Fall Out Boy");
+             System.out.println("10. Marshmello");
+             System.out.print("\nWhich station would you like to listen to? (Enter 1 - 10): ");
+             stationChoice = input.nextInt();
+             
+        //additonal switch statement to process which station choice prints out to the screen
+               switch(stationChoice){ 
+                    case 1:
+                        System.out.println("\nYou are now listening to BEYONCE!");
+                        break;
+                    case 2:
+                        System.out.println("\nYou are now listening to ED SHEERAN!");
+                        break;
+                    case 3:
+                        System.out.println("\nYou are now listening to KANYE WEST!");
+                        break;
+                    case 4:
+                        System.out.println("\nYou are now listening to DISNEY CLASSICS!");
+                        break;
+                    case 5:
+                        System.out.println("\nYou are now listening to CARDI B!");
+                        break;
+                    case 6:
+                        System.out.println("\nYou are now listening to DEMI LOVATO!");
+                        break;
+                    case 7:
+                        System.out.println("\nYou are now listening to NICK JONAS!");
+                        break;
+                    case 8:
+                        System.out.println("\nYou are now listening to MAROON 5!");
+                        break;
+                    case 9:
+                        System.out.println("\nYou are now listening to FALL OUT BOY!");
+                        break;
+                    case 10:
+                        System.out.println("\nYou are now listening to MARSHMELLO!");
+                        break;
+                }//end of option 2 swtich statement
+      }//end of playStation()
+      
+      public static void goodbyeMessage (String userName){
+      //Display thank you message which includes the user's last name
+            System.out.println("\n" + userName + "! " + " Thank you for being a valued listener!");
+            System.out.println("\n*************************************************** GOODBYE Slacker Radio Listener ***************************************************");
+            return;
+      }//end of goodbyeMessage()
+      
+}//end of class
